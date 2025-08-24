@@ -1,51 +1,120 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Step Lens</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Comme:wght@400;700&display=swap" rel="stylesheet">
-</head>
-<body>
-    <header>
-        <h1>お題が変えるいつもの道</h1>
-        <p>今日の1枚はどんな景色が撮れるかな</p>
-        <div class="header-icons">
-            <img src="assets/images/logo.png" alt="Step Lens Logo" class="logo">
-            <img src="assets/images/app-icon.png" alt="Step Lens App Icon" class="app-icon">
-            <a href="https://apps.apple.com/app/id6520386794">
-                <img src="assets/images/appstore.png" alt="Step Lens App Store Link" class="app-store-button">
+    <link rel="icon" type="image/png" href="assets/images/app-icon.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comme:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="font-sans m-0 p-0 text-center bg-gray-100">
+    <div class="mx-auto bg-white" style="max-width: 375px">
+      <div class="relative">
+        <img src="assets/images/header-bg.png" alt="" class="block w-full" />
+        <div
+          class="absolute top-0 left-0 w-full h-full flex flex-col items-start justify-start"
+        >
+          <div class="bg-white bg-opacity-40 px-4 py-4 rounded text-left">
+            <h1 class="text-gray-800 text-lg m-0 font-bold">
+              お題が変えるいつもの道
+            </h1>
+            <p class="text-gray-800 text-sm mt-1 mb-0">
+              今日の1枚はどんな景色が撮れるかな
+            </p>
+          </div>
+          <div class="flex flex-col items-center px-4">
+            <img
+              src="assets/images/logo.png"
+              alt="Step Lens Logo"
+              class="w-24 my-1"
+            />
+            <img
+              src="assets/images/app-icon.png"
+              alt="Step Lens App Icon"
+              class="w-16 my-1"
+            />
+            <a href="https://apps.apple.com/app/id6520386794" class="my-1">
+              <img
+                src="assets/images/appstore.png"
+                alt="Step Lens App Store Link"
+                class="w-24"
+              />
             </a>
+          </div>
         </div>
-    </header>
-    
-    <section class="features">
-        <div class="feature">
-            <img src="assets/images/hashtag.png" alt="投稿イメージ">
-            <p>その日の<span class="highlight">お題を探しに</span>出歩くだけで、見慣れた道が新鮮に！</p>
+      </div>
+
+      <section class="py-5 px-5">
+        <div class="flex items-center justify-center mb-5 text-left">
+          <img
+            src="assets/images/hashtag.png"
+            alt="投稿イメージ"
+            class="mr-5"
+          />
+          <p class="font-semibold text-base leading-tight">
+            その日の<span class="text-teal-600 font-bold">お題を探しに</span
+            >出歩くだけで、見慣れた道が新鮮に！
+          </p>
         </div>
-        <div class="feature">
-            <p>お題を見つけたら<span class="highlight">写真を撮って投稿</span>して友達にシェアできる！</p>
-            <img src="assets/images/photo-post.png" alt="投稿イメージ">
+        <div class="flex items-center justify-center mb-5 text-left">
+          <p class="font-semibold text-base leading-tight">
+            お題を見つけたら<span class="text-teal-600 font-bold"
+              >写真を撮って投稿</span
+            >して友達にシェアできる！
+          </p>
+          <img
+            src="assets/images/photo-post.png"
+            alt="投稿イメージ"
+            class="ml-5"
+          />
         </div>
-        <div class="feature">
-            <img src="assets/images/collage.png" alt="投稿一覧">
-            <p>その日に<span class="highlight">他のみんなが見つけた風景やスポット</span>も楽しめる！</p>
+        <div class="flex items-center justify-center mb-5 text-left">
+          <img src="assets/images/collage.png" alt="投稿一覧" class="mr-5" />
+          <p class="font-semibold text-base leading-tight">
+            その日に<span class="text-teal-600 font-bold"
+              >他のみんなが見つけた風景やスポット</span
+            >も楽しめる！
+          </p>
         </div>
-    </section>
-    
-    <section class="cta">
-        <h2>さあ、今日の1枚を<br>見つけに出かけよう！</h2>
-        <img src="assets/images/app-screenshot.png" alt="アプリ画面" class="screenshot">
-    </section>
-    
-    <footer>
-        <nav>
-            <a href="forms.html">問い合わせ先</a>
-            <a href="terms.html">利用規約</a>
-            <a href="privacypolicy.html">プライバシーポリシー</a>
-        </nav>
+      </section>
+
+      <section class="py-5 px-5">
+        <h2
+          class="font-semibold text-3xl leading-relaxed text-center text-gray-800 mb-4"
+        >
+          さあ、今日の1枚を<br class="hidden sm:inline" />見つけに出かけよう！
+        </h2>
+        <img
+          src="assets/images/app-screenshot.png"
+          alt="アプリ画面"
+          class="w-4/5 max-w-md rounded-lg mx-auto block sm:w-11/12"
+        />
+      </section>
+    </div>
+
+    <footer class="bg-teal-600 text-white p-5">
+      <nav class="flex flex-wrap justify-center">
+        <a
+          href="forms.html"
+          class="text-white no-underline mx-2 whitespace-nowrap"
+          >問い合わせ先</a
+        >
+        <a
+          href="terms.html"
+          class="text-white no-underline mx-2 whitespace-nowrap"
+          >利用規約</a
+        >
+        <a
+          href="privacypolicy.html"
+          class="text-white no-underline mx-2 whitespace-nowrap"
+          >プライバシーポリシー</a
+        >
+      </nav>
     </footer>
-</body>
+  </body>
 </html>

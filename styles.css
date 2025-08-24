@@ -1,142 +1,7 @@
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    background-color: #f8f8f8;
-}
-
-header {
-    background: url('assets/images/header-bg.png') no-repeat center/cover;
-    color: #fff;
-    padding: 40px 20px;
-    text-align: left; /* 左寄せ */
-    padding-left: 20pt; /* 左の余白を20ptに設定 */
-    display: flex;
-    flex-direction: column; /* 縦方向に配置 */
-    align-items: flex-start; /* 左寄せ */
-    font-family: 'Comme', sans-serif; /* Commeフォントを適用 */
-}
-
-header h1 {
-    color: #313131;
-    font-size: 2.5em;
-    margin: 0;
-}
-
-header p {
-    color: #313131;
-    font-size: 1.2em;
-    margin: 10px 0;
-}
-
-.logo {
-    width: 120px;
-}
-
-.app-icon {
-    width: 66px;
-}
-
-.app-store-button {
-    width: 120px;
-}
-
-.features {
-    padding: 40px 20px;
-}
-
-.feature {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-    text-align: left; /* 左寄せ */
-}
-
-.feature img {
-    margin-right: 20px;
-}
-
-.feature p {
-    font-family: 'Hiragino Kaku Gothic Pro', sans-serif;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 100%;
-    letter-spacing: 0px;
-    vertical-align: middle;
-    text-align: left; /* 左寄せ */
-}
-
-.highlight {
-    color: #009688;
-    font-weight: bold;
-}
-
-.cta {
-    padding: 40px 20px;
-}
-
-.cta h2 {
-    font-family: 'Hiragino Kaku Gothic Pro', sans-serif;
-    font-weight: 600;
-    font-size: 30px;
-    line-height: 1.5; /* 行間を広げる */
-    letter-spacing: 0px;
-    text-align: center;
-    vertical-align: middle;
-    color: #2F2C2B;
-}
-
-.cta h2 br {
-    display: none;
-}
-
-@media (min-width: 600px) {
-    .cta h2 br {
-        display: inline;
-    }
-}
-
-.screenshot {
-    width: 80%;
-    max-width: 400px;
-    border-radius: 10px;
-}
-
-footer {
-    background: #009688;
-    color: white;
-    padding: 20px;
-}
-
-footer nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 10px;
-}
-
-@media (max-width: 600px) {
-    .screenshot {
-        width: 90%;
-    }
-}
-
-.header-icons {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-left: 46px; /* 左の余白を46pxに設定 */
-}
-
-.header-icons img,
-.header-icons a {
-    margin: 10px 0;
-}
-
+/* Custom styles for Step Lens */
 .privacy-policy {
-    text-align: left;
-    padding: 20px;
+  text-align: left;
+  padding: 20px;
 }
 
 .privacy-policy header,
@@ -149,12 +14,12 @@ footer nav a {
 .privacy-policy ul,
 .privacy-policy li,
 .privacy-policy a {
-    text-align: left;
+  text-align: left;
 }
 
 .terms {
-    text-align: left;
-    padding: 20px;
+  text-align: left;
+  padding: 20px;
 }
 
 .terms header,
@@ -167,5 +32,14 @@ footer nav a {
 .terms ul,
 .terms li,
 .terms a {
-    text-align: left;
+  text-align: left;
+}
+
+/* Custom font for headers */
+.font-comme {
+  font-family: "Comme", sans-serif;
+}
+
+.font-hiragino {
+  font-family: "Hiragino Kaku Gothic Pro", sans-serif;
 }
