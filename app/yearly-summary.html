@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>年間まとめ - Step Lens</title>
+    <link rel="icon" type="image/png" href="../assets/images/app-icon.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comme:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+    <style>
+      .confetti {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        opacity: 0;
+      }
+      @keyframes fall {
+        0% {
+          opacity: 1;
+          transform: translateY(-100px) rotate(0deg);
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(400px) rotate(720deg);
+        }
+      }
+      .count-number {
+        font-size: 4rem;
+        font-weight: bold;
+        background: linear-gradient(135deg, #009688 0%, #4db6ac 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .card {
+        background: linear-gradient(180deg, #ffffff 0%, #f0fdfa 100%);
+        border: 2px solid #99f6e4;
+        border-radius: 20px;
+        padding: 2rem;
+        box-shadow: 0 10px 40px rgba(0, 150, 136, 0.15);
+      }
+      .celebrate-icon {
+        font-size: 3rem;
+      }
+    </style>
+  </head>
+  <body class="font-sans m-0 p-0 text-center bg-gradient-to-b from-teal-50 to-white min-h-screen">
+    <div class="mx-auto bg-white shadow-lg" style="max-width: 375px; min-height: 100vh;">
+      <!-- ヘッダー -->
+      <div class="bg-gradient-to-br from-teal-600 to-teal-500 py-8 px-4 relative overflow-hidden">
+        <div id="confetti-container" class="absolute inset-0 pointer-events-none"></div>
+        <div class="relative z-10">
+          <p class="text-white text-sm opacity-90 mb-2">Step Lens</p>
+          <h1 class="text-white text-2xl font-bold m-0">
+            <span id="year-display">2024</span>年のまとめ
+          </h1>
+        </div>
+      </div>
+
+      <!-- メインコンテンツ -->
+      <div class="px-5 py-8">
+        <!-- 投稿数カード -->
+        <div class="card mb-6">
+          <p class="celebrate-icon mb-2">📸</p>
+          <p class="text-gray-600 text-sm mb-1">今年の投稿数</p>
+          <p class="count-number mb-1" id="count-display">0</p>
+          <p class="text-gray-700 text-lg font-semibold">枚</p>
+        </div>
+
+        <!-- メッセージ -->
+        <div class="text-left bg-teal-50 rounded-xl p-5 mb-6">
+          <p class="text-gray-700 text-base leading-relaxed" id="message">
+            今年もたくさんの素敵な瞬間を切り取りましたね！
+          </p>
+        </div>
+
+        <!-- 来年への励まし -->
+        <div class="mb-8">
+          <p class="text-2xl mb-3">🌅</p>
+          <p class="text-gray-800 font-semibold text-lg mb-2">
+            来年も Step Lens で<br />新しい発見を見つけよう！
+          </p>
+          <p class="text-gray-500 text-sm">
+            毎日のお散歩がもっと楽しくなる
+          </p>
+        </div>
+
+        <!-- App Store リンク -->
+        <div class="mt-6">
+          <p class="text-gray-400 text-xs mb-2">アプリをお持ちでない方</p>
+          <a href="https://apps.apple.com/app/id6520386794">
+            <img
+              src="../assets/images/appstore.png"
+              alt="App Store からダウンロード"
+              class="w-32 mx-auto"
+            />
+          </a>
+        </div>
+      </div>
+
+      <!-- フッター -->
+      <footer class="bg-teal-600 text-white p-5">
+        <nav class="flex flex-wrap justify-center">
+          <a
+            href="../forms.html"
+            class="text-white no-underline mx-2 whitespace-nowrap"
+            >問い合わせ先</a
+          >
+          <a
+            href="../legal/terms.html"
+            class="text-white no-underline mx-2 whitespace-nowrap"
+            >利用規約</a
+          >
+          <a
+            href="../legal/privacypolicy.html"
+            class="text-white no-underline mx-2 whitespace-nowrap"
+            >プライバシーポリシー</a
+          >
+        </nav>
+      </footer>
+    </div>
+
+    <script>
+      // URLパラメータを取得
+      const urlParams = new URLSearchParams(window.location.search);
+      const count = Math.max(0, parseInt(urlParams.get('count')) || 0); // 負の数を防ぐ
+      const year = parseInt(urlParams.get('year')) || new Date().getFullYear(); // 数値に統一
+
+      // 年を表示
+      document.getElementById('year-display').textContent = year;
+
+      // 投稿数をアニメーション表示
+      const countDisplay = document.getElementById('count-display');
+      let currentCount = 0;
+      const duration = 1500;
+      const steps = 60;
+      const increment = count / steps;
+      const stepDuration = duration / steps;
+
+      function animateCount() {
+        currentCount += increment;
+        if (currentCount >= count) {
+          countDisplay.textContent = count;
+        } else {
+          countDisplay.textContent = Math.floor(currentCount);
+          setTimeout(animateCount, stepDuration);
+        }
+      }
+
+      // ページ読み込み後にアニメーション開始
+      setTimeout(animateCount, 500);
+
+      // 投稿数に応じたメッセージ
+      const messageEl = document.getElementById('message');
+      if (count === 0) {
+        messageEl.textContent = '来年はStep Lensでたくさんの写真を撮ってみませんか？素敵な発見が待っています！';
+      } else if (count < 10) {
+        messageEl.textContent = '今年もStep Lensを使ってくれてありがとうございます！来年はもっとたくさんの瞬間を切り取ってみませんか？';
+      } else if (count < 50) {
+        messageEl.textContent = '今年もたくさんの素敵な瞬間を切り取りましたね！来年もStep Lensで新しい発見を楽しみましょう！';
+      } else if (count < 100) {
+        messageEl.textContent = 'すごい！今年は本当にたくさん投稿してくれましたね。あなたの写真が誰かの散歩を楽しくしているかも！';
+      } else {
+        messageEl.textContent = '驚異的な投稿数です！あなたはStep Lensのスーパーユーザーですね。来年も一緒に素敵な瞬間を見つけましょう！';
+      }
+
+      // 紙吹雪アニメーション
+      const confettiContainer = document.getElementById('confetti-container');
+      const colors = ['#009688', '#4db6ac', '#80cbc4', '#ffeb3b', '#ff9800', '#e91e63'];
+
+      function createConfetti() {
+        for (let i = 0; i < 30; i++) {
+          setTimeout(() => {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            confetti.style.left = Math.random() * 100 + '%';
+            confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            confetti.style.animation = `fall ${2 + Math.random() * 2}s ease-out forwards`;
+            confetti.style.animationDelay = Math.random() * 0.5 + 's';
+            confettiContainer.appendChild(confetti);
+
+            // アニメーション終了後に削除
+            setTimeout(() => confetti.remove(), 4000);
+          }, i * 50);
+        }
+      }
+
+      // ページ読み込み時に紙吹雪を表示
+      setTimeout(createConfetti, 300);
+    </script>
+  </body>
+</html>
