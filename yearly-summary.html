@@ -124,8 +124,8 @@
     <script>
       // URLパラメータを取得
       const urlParams = new URLSearchParams(window.location.search);
-      const count = parseInt(urlParams.get('count')) || 0;
-      const year = urlParams.get('year') || new Date().getFullYear();
+      const count = Math.max(0, parseInt(urlParams.get('count')) || 0); // 負の数を防ぐ
+      const year = parseInt(urlParams.get('year')) || new Date().getFullYear(); // 数値に統一
 
       // 年を表示
       document.getElementById('year-display').textContent = year;
